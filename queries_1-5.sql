@@ -4,7 +4,7 @@ SELECT
     od.*, 
     (SELECT o.customer_id 
      FROM orders o 
-     WHERE o.order_id = od.order_id) AS customer_id
+     WHERE o.id = od.order_id) AS customer_id
 FROM order_details od;
 
 // 2. Write an SQL query that will display the order_details table. Filter the results so that the corresponding record from the orders table satisfies the condition shipper_id=3.
@@ -12,10 +12,9 @@ FROM order_details od;
 SELECT * 
 FROM order_details od
 WHERE od.order_id IN (
-    SELECT o.order_id 
+    SELECT o.id 
     FROM orders o 
     WHERE o.shipper_id = 3
-);
 
 // 3. Write an SQL query, nested in the FROM statement, that will select rows with the condition quantity>10 from the order_details table. For the obtained data, find the average value of the quantity field — group by order_id.
 SELECT 
