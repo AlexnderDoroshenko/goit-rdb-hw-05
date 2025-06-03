@@ -1,6 +1,7 @@
+USE mydb;
 DROP FUNCTION IF EXISTS divide_floats;
 
-DELIMITER //
+DELIMITER \\
 
 CREATE FUNCTION divide_floats(a FLOAT, b FLOAT) 
 RETURNS FLOAT
@@ -12,6 +13,6 @@ BEGIN
     END IF;
     SET result = a / b;
     RETURN result;
-END//
+END\\
 
 DELIMITER ;
